@@ -1,11 +1,22 @@
+
+
 def show_menu():
-    print('123')
+    print('1 '
+          '2 '
+          '3 '
+          '4 '
+          '5 '
+          '6 '
+          '7 ', sep = '\n')
     choice = int(input())
     return choice
 
-def print_result():
+def print_result(phone_book):
+    print(phone_book)
     
-
+def find_by_lastname(phone_book, last):
+    last = phone_book       
+    
 def work_with_phonebook():
 	
     choice = show_menu()
@@ -40,23 +51,21 @@ def work_with_phonebook():
 def read_txt(filename): 
 
     phone_book=[]
-
+    
     fields=['Фамилия', 'Имя', 'Телефон', 'Описание']
-
 	
     with open(filename,'r', encoding='utf-8') as phb:
 
         for line in phb:
 
-            	record = dict(zip(fields,    line.split(',')))
-	     
-		data.append(record)	
+            record = dict(zip(fields, line.split(',')))
+            phone_book.append(record)	
 
     return phone_book
 
 def write_txt(filename , phone_book):
 
-    with open('phonebook.txt','w',encoding='utf-8') as phout:
+    with open(filename,'w',encoding='utf-8') as phout:
 
         for i in range(len(phone_book)):
 
@@ -64,3 +73,5 @@ def write_txt(filename , phone_book):
             for v in phone_book[i].values():
                 s+=v+','
             phout.write(f'{s[:-1]}\n')
+            
+work_with_phonebook()
